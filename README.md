@@ -1,14 +1,32 @@
-### 적용방법
-1. ./scripts/config 파일 작성 (아래 config 예시 참고)
-2. bash run.sh
-3. docker 컨테이너에 접속하여 init.sh 실행
+![image](https://github.com/kimhyunsoon/micro-mongo/assets/60641694/b85f6c6e-1024-4e8f-bd9d-90abfc84c0f1)
 
-### config 예시
-OS_USER=$서버유저명  
-OUTER_HOST=$외부IP  
-OUTER_PORT=$외부포트  
-DB_ROOT_NAME=root  
-DB_ROOT_PASSWORD=$비밀번호  
-DB_MASTER_NAME=master  
-DB_MASTER_PASSWORD=$비밀번호  
-DB_DATABASE_NAME=$데이터베이스명  
+# micro-mongo
+MongoDB Docker container builder with applied replicaSet.
+
+# How to Apply
+1. Create a `./scripts/config` file with the following content:
+
+```bash
+OS_USER=$your_server_username
+OUTER_HOST=$external_IP
+OUTER_PORT=$external_port
+DB_ROOT_NAME=root
+DB_ROOT_PASSWORD=$password
+DB_MASTER_NAME=master
+DB_MASTER_PASSWORD=$password
+DB_DATABASE_NAME=$database_name
+```
+
+3. Execute `run.sh`.
+
+```bash
+bash run.sh
+```
+
+3. Access the Docker container and run `init.sh`.
+```bash
+docker exec -it $container_id bash
+```
+```bash
+bash init.sh
+```
