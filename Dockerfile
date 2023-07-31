@@ -1,4 +1,4 @@
-FROM mongo:6.0
+FROM arm64v8/mongo:6.0
 
 # 데이터베이스 폴더 생성
 RUN mkdir -p /data/db
