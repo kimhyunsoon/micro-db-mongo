@@ -23,7 +23,7 @@ DB_DATABASE_NAME=$database_name
 bash run.sh
 ```
 
-3. Access the Docker container and run `init.sh`.
+3. Access the Docker container and run `init.sh`. (For the initial execution or data initialization.)
 ```bash
 docker exec -it $container_id bash
 ```
