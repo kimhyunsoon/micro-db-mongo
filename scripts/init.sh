@@ -19,13 +19,15 @@ use admin;
 db.createUser({
   user: '$DB_ROOT_NAME',
   pwd: '$DB_ROOT_PASSWORD',
-  roles: [{
-    role: 'root',
-    db: 'admin'
-  }],
+  roles: [
+    {
+      role: 'root',
+      db: 'admin'
+    },
+  ],
 });
 
-use $DB_DATABASE_NAME;
+db.auth('$DB_ROOT_NAME', '$DB_ROOT_PASSWORD');
 
 db.createUser({
   user: '$DB_MASTER_NAME',

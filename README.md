@@ -7,7 +7,7 @@ MongoDB Docker container builder with applied replicaSet.
 1. Create a `./scripts/config` file with the following content:
 
 ```bash
-OS_USER=$your_server_username
+NFS_DIR=$your_nfs_dir
 OUTER_HOST=$external_IP
 OUTER_PORT=$external_port
 DB_ROOT_NAME=root
@@ -17,13 +17,19 @@ DB_MASTER_PASSWORD=$password
 DB_DATABASE_NAME=$database_name
 ```
 
+2. Creating a key file.
+
+```bash
+openssl rand -base64 756 > mongodb.key
+```
+
 3. Execute `run.sh`.
 
 ```bash
 bash run.sh
 ```
 
-3. Access the Docker container and run `init.sh`. (For the initial execution or after data initialization.)
+4. Access the Docker container and run `init.sh`. (For the initial execution or after data initialization.)
 ```bash
 docker exec -it $container_id bash
 ```
