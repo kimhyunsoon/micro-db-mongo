@@ -1,0 +1,22 @@
+version: '3'
+
+services:
+  mongo:
+    image: mongo:6.0
+    ports:
+      - $OUTER_PORT:27017
+    env_file:
+      - .env
+    volumes:
+      - "./mongod.conf:/etc/mongod.conf"
+      - "./mongodb.key:/mongodb.key"
+      - "./init.sh:/init.sh"
+      - "$DIR/nfs/blitz-db-mongo/data:/data/db"
+      - "$DIR/nfs/blitz-db-mongo/backups:/etc/backups"
+      - "$DIR/nfs/blitz-db-mongo/log:/var/log/mongodb"
+    command: ["bash", "-c", "chmod 600 /mongodb.key && mongod -f /etc/mongod.conf"]
+    networks:
+      - micro_network
+networks:
+  micro_network:
+    external: true

@@ -1,15 +1,15 @@
 #!/bin/bash
-source ./config
+source .env
 
 mongosh --host 127.0.0.1 --port 27017 <<EOF
 var config = {
-  "_id": "rs",
-  "members": [
+  _id: 'rs',
+  members: [
     {
-      "_id": 0,
-      "host": "$OUTER_HOST:$OUTER_PORT",
+      _id: 0,
+      host: 'micro_mongo:27017',
     },
-  ]
+  ],
 };
 
 rs.initiate(config, { force: true });

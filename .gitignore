@@ -1,5 +1,4 @@
 .DS_Store
-config
 mongodb.key
 
 # Editor directories and files
@@ -9,4 +8,4 @@ mongodb.key
 *.ntvs*
 *.njsproj
 *.sln
-/scripts/config
+.env
