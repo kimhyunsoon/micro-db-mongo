@@ -14,7 +14,6 @@ openssl rand -base64 756 > mongodb.key
 
 ```bash
 NFS_DIR=$your_nfs_dir
-OUTER_HOST=$external_IP
 OUTER_PORT=$external_port
 DB_ROOT_NAME=root
 DB_ROOT_PASSWORD=$password

@@ -11,9 +11,9 @@ services:
       - "./mongod.conf:/etc/mongod.conf"
       - "./mongodb.key:/mongodb.key"
       - "./init.sh:/init.sh"
-      - "$DIR/nfs/blitz-db-mongo/data:/data/db"
-      - "$DIR/nfs/blitz-db-mongo/backups:/etc/backups"
-      - "$DIR/nfs/blitz-db-mongo/log:/var/log/mongodb"
+      - "$NFS_DIR/data:/data/db"
+      - "$NFS_DIR/backups:/etc/backups"
+      - "$NFS_DIR/log:/var/log/mongodb"
     command: ["bash", "-c", "chmod 600 /mongodb.key && mongod -f /etc/mongod.conf"]
     networks:
       - micro_network
